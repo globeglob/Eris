@@ -195,6 +195,7 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 12 )
 animation = "walk_aim"
+frame = 2
 playing = true
 flip_h = true
 

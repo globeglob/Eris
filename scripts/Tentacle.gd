@@ -34,9 +34,9 @@ func _process(delta):
 		hit = 0
 	if get_parent().visible:
 		time += delta * rand_range(0,2)
-		if time > 5:
+		if time > 2:
 			time2 += delta
-			position.y = start_pos.y + cos(time2) * 200
+			position.y = start_pos.y + sin(time2) * 200
 			position.x = start_pos.x + sin(time2 * 2) * 50
 		if time > 15:
 			position = start_pos

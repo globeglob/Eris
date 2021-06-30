@@ -58,12 +58,12 @@ func _process(delta):
 		if time > 10:
 			$Eye.animation = "fire"
 			if firedelay <= 0:
-				firedelay = 0.4
+				firedelay = 0.8 * (hp/100)
 				var i = projectile.instance()
 				i.global_position = global_position
 				i.position.y += 30
 				i.look_at(Global.playerpos)
-				i.rotation_degrees += rand_range(-30, 30)
+				i.rotation_degrees += rand_range(-60, 60)
 				get_parent().add_child(i)
 			else:
 				firedelay -= delta

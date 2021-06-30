@@ -463,7 +463,7 @@ visible = false
 position = Vector2( 10208, 800 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 25 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Label" type="Label" parent="Key"]
