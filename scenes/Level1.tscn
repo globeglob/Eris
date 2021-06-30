@@ -401,18 +401,11 @@ margin_right = 4984.0
 margin_bottom = 258.0
 text = "ERROR: MEMORY ADDRESS NOT FOUND"
 
-[node name="Message9" parent="Text" instance=ExtResource( 11 )]
-margin_left = 5616.0
-margin_top = -24.0
-margin_right = 6192.0
-margin_bottom = 66.0
-text = "HOLD RIGHT CLICK TO AIM"
-
 [node name="Message10" parent="Text" instance=ExtResource( 11 )]
-margin_left = 6176.0
-margin_top = 40.0
-margin_right = 6752.0
-margin_bottom = 130.0
+margin_left = 5616.0
+margin_top = -80.0
+margin_right = 6192.0
+margin_bottom = 10.0
 text = "LEFT CLICK TO FIRE
 HOLD LEFT CLICK TO CHARGE"
 
@@ -470,6 +463,7 @@ visible = false
 position = Vector2( 10208, 800 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 25 )
+frame = 1
 playing = true
 
 [node name="Label" type="Label" parent="Key"]
