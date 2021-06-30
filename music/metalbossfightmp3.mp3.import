@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/metalbossfightmp3.mp3-c66667072bd113a2fb00192022f9553f.mp3str"
+
+[deps]
+
+source_file="res://music/metalbossfightmp3.mp3"
+dest_files=[ "res://.import/metalbossfightmp3.mp3-c66667072bd113a2fb00192022f9553f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

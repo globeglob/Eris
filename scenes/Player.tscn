@@ -195,7 +195,7 @@ shape = SubResource( 1 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 12 )
 animation = "walk_aim"
-frame = 2
+frame = 3
 playing = true
 flip_h = true
 
@@ -384,6 +384,30 @@ margin_right = -2.0
 margin_bottom = -2.0
 custom_fonts/font = SubResource( 17 )
 text = "The collector is an illegaly modified Esiine Model 3 Security Drone featuring more advanced armor and weapons systems. Due to behavioral malfunctions, the Collector displays hoarding behavior, collecting bits of scrap it can find and piling them in a location it has designated as its nest. "
+autowrap = true
+
+[node name="Hoversentry" type="Label" parent="ParallaxBackground/ParallaxLayer/Drive/Panel/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 31.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 17 )
+text = "The Esiine Robotics MK.II Hoversentry is an all-in-one security solution featuring AI threat detection, auto-targeting, and a best-in-class heavy plasma cannon."
+autowrap = true
+
+[node name="Northwest Channel Monster" type="Label" parent="ParallaxBackground/ParallaxLayer/Drive/Panel/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 31.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 17 )
+text = "The northwest channel monster is a legendary creature said by some to live in the northwest channel. Reports vary, but according to most it resembles a large squid. There is no definitive evidence of its existence."
 autowrap = true
 
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]

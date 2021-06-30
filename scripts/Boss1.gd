@@ -13,7 +13,7 @@ var defaultSpeed = 30
 var velocity = Vector2(speed,0)
 
 var hit = 0
-var hp = 30
+var hp = 50
 var hpDisplay = hp
 
 var explosion = preload("res://scenes/Explosion.tscn")

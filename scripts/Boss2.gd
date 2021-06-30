@@ -85,6 +85,7 @@ func _process(delta):
 				i.position = global_position
 				i.emitting = true
 				get_parent().add_child(i)
+				get_parent().next_level()
 				queue_free()
 		
 	pass

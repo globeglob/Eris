@@ -22,6 +22,8 @@ var required_charge = 0.75
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Global.level == "res://scenes/Level3.tscn":
+		$Camera2D/CPUParticles2D.visible = false
 	shaderAbberation = 0
 	$ParallaxBackground/ParallaxLayer/ColorRect.material.set_shader_param("aberration_amount", shaderAbberation * 10 + 2)
 	$ParallaxBackground/ParallaxLayer/ColorRect.material.set_shader_param("boost", shaderAbberation * 2 + 1.2)
