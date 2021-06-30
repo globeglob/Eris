@@ -74,7 +74,7 @@ func set_health(hp):
 
 
 func _physics_process(delta):
-	if charge:
+	if charge and aim:
 		speed = 100
 		$Smoke2.emitting = true
 		if charge_time < required_charge + 0.1:
