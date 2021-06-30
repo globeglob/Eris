@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Crisp_Ocean_Waves-Mike_Koenig-1486046376.mp3-19ba5af6c73857c46dd2efe4e970d719.mp3str"
+
+[deps]
+
+source_file="res://sounds/Crisp_Ocean_Waves-Mike_Koenig-1486046376.mp3"
+dest_files=[ "res://.import/Crisp_Ocean_Waves-Mike_Koenig-1486046376.mp3-19ba5af6c73857c46dd2efe4e970d719.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

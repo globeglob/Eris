@@ -9,7 +9,7 @@ var recoil = Vector2()
 var speed = 200
 var jump_speed = -400
 var gravity = 800
-var aim = false
+var aim = true
 var firedelay = 0
 var shaderAbberation = 0
 var hp = 3
@@ -30,7 +30,6 @@ func _ready():
 
 func get_input():
 	velocity.x = 0
-	aim = Input.is_action_pressed("aim")
 	charge = Input.is_action_pressed("fire")
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
