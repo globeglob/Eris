@@ -118,41 +118,42 @@ texture = ExtResource( 5 )
 position = Vector2( -60, 132 )
 rotation = 3.14159
 frames = SubResource( 11 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Body"]
 position = Vector2( -36, 160 )
 rotation = 3.14159
 frames = SubResource( 11 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="Body"]
 position = Vector2( -12, 176 )
 rotation = 3.14159
 frames = SubResource( 11 )
+frame = 2
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Body"]
 position = Vector2( 16, 180 )
 rotation = 3.14159
 frames = SubResource( 11 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="Body"]
 position = Vector2( 40, 164 )
 rotation = 3.14159
 frames = SubResource( 11 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="Body"]
 position = Vector2( 64, 128 )
 rotation = 3.14159
 frames = SubResource( 11 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Eye" type="AnimatedSprite" parent="."]

@@ -29,20 +29,21 @@ func _ready():
 	pass # Replace with function body.
 
 func get_input():
-	velocity.x = 0
-	charge = Input.is_action_pressed("fire")
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
-	if Input.is_action_pressed("right"):
-		$AnimatedSprite.flip_h = false
-		velocity.x += speed
-	if Input.is_action_pressed("left"):
-		$AnimatedSprite.flip_h = true
-		velocity.x -= speed
-	if Input.is_action_just_released("fire"):
-		$Charge.playing = false
-	if Input.is_action_just_released("fire") and aim and firedelay <= 0:
-		shoot()
+	if not Global.pause and not Global.button:
+		velocity.x = 0
+		charge = Input.is_action_pressed("fire")
+		if Input.is_action_pressed("ui_cancel"):
+			get_tree().quit()
+		if Input.is_action_pressed("right"):
+			$AnimatedSprite.flip_h = false
+			velocity.x += speed
+		if Input.is_action_pressed("left"):
+			$AnimatedSprite.flip_h = true
+			velocity.x -= speed
+		if Input.is_action_just_released("fire"):
+			$Charge.playing = false
+		if Input.is_action_just_released("fire") and aim and firedelay <= 0:
+			shoot()
 
 func shoot():
 	if charge_time > required_charge:
