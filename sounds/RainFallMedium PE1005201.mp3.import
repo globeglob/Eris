@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/RainFallMedium PE1005201.mp3-f5221a5deabba8316bb40be8c2a0410f.mp3str"
+
+[deps]
+
+source_file="res://sounds/RainFallMedium PE1005201.mp3"
+dest_files=[ "res://.import/RainFallMedium PE1005201.mp3-f5221a5deabba8316bb40be8c2a0410f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

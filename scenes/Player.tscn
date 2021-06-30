@@ -1,0 +1,232 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://sprites/player_walk_aim.png" type="Texture" id=1]
+[ext_resource path="res://sprites/player_walk.png" type="Texture" id=2]
+[ext_resource path="res://sprites/player_aim.png" type="Texture" id=3]
+[ext_resource path="res://sprites/player_idle.png" type="Texture" id=4]
+[ext_resource path="res://scripts/Player.gd" type="Script" id=5]
+[ext_resource path="res://sprites/rain.png" type="Texture" id=6]
+[ext_resource path="res://shaders/crt_shader.shader" type="Shader" id=7]
+[ext_resource path="res://sounds/ThunderClap4HvyC SDT2042602.mp3" type="AudioStream" id=8]
+[ext_resource path="res://sprites/heartsflash.png" type="Texture" id=9]
+[ext_resource path="res://sprites/hearts2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/hearts1.png" type="Texture" id=11]
+[ext_resource path="res://sprites/hearts3.png" type="Texture" id=12]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 64.0
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 48, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 48, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 48, 16, 48 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 48, 16, 48 )
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "walk_aim",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 11 ) ],
+"loop": true,
+"name": "jump_aim",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "aim",
+"speed": 5.0
+} ]
+
+[sub_resource type="SegmentShape2D" id=13]
+a = Vector2( 512, 0 )
+b = Vector2( -512, 0.117001 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "flash",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=14]
+shader = ExtResource( 7 )
+shader_param/screen_size = Vector2( 1024, 300 )
+shader_param/show_curvature = true
+shader_param/curvature_x_amount = 6.0
+shader_param/curvature_y_amount = 4.0
+shader_param/corner_color = Color( 0, 0, 0, 1 )
+shader_param/show_vignette = true
+shader_param/vignette_opacity = 0.2
+shader_param/show_horizontal_scan_lines = true
+shader_param/horizontal_scan_lines_amount = 100.0
+shader_param/horizontal_scan_lines_opacity = 0.2
+shader_param/show_vertical_scan_lines = false
+shader_param/vertical_scan_lines_amount = 320.0
+shader_param/vertical_scan_lines_opacity = 1.0
+shader_param/boost = 1.2
+shader_param/aberration_amount = 2.0
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = SubResource( 12 )
+animation = "walk_aim"
+frame = 1
+playing = true
+flip_h = true
+
+[node name="Smoke" type="CPUParticles2D" parent="."]
+position = Vector2( 529, -7 )
+emitting = false
+amount = 8000
+lifetime = 2.0
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 512, 1 )
+direction = Vector2( 0, -1 )
+gravity = Vector2( 0, 0 )
+initial_velocity = 4.0
+scale_amount = 4.0
+
+[node name="Area2D" type="Area2D" parent="Smoke"]
+position = Vector2( -1, -1 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Smoke/Area2D"]
+position = Vector2( 0, -4.76837e-07 )
+shape = SubResource( 13 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Camera2D"]
+position = Vector2( -104, -532.442 )
+rotation = -0.132544
+amount = 800
+lifetime = 4.0
+preprocess = 8.0
+local_coords = false
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 1000, 1 )
+direction = Vector2( 0, 1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 700.0
+scale_amount = 2.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+visible = false
+margin_left = -576.0
+margin_top = -384.0
+margin_right = 640.0
+margin_bottom = 384.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 128
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0, 0 )
+
+[node name="Hearts" type="AnimatedSprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( -424, -248 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 15 )
+animation = "3"
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource( 14 )
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gunfire" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
