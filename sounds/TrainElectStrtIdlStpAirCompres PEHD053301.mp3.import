@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TrainElectStrtIdlStpAirCompres PEHD053301.mp3-dab6f245ae8545583fe5fd05e2c43d99.mp3str"
+
+[deps]
+
+source_file="res://sounds/TrainElectStrtIdlStpAirCompres PEHD053301.mp3"
+dest_files=[ "res://.import/TrainElectStrtIdlStpAirCompres PEHD053301.mp3-dab6f245ae8545583fe5fd05e2c43d99.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

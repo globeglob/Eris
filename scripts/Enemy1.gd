@@ -8,7 +8,8 @@ var speed = 100
 var velocity = Vector2(speed, 0)
 var explosion = preload("res://scenes/Explosion.tscn")
 
-var hit = false
+var hit = 0
+var hp = 5
 
 var time = 0
 
@@ -27,12 +28,18 @@ func _body_entered(body):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if hit:
-		var i = explosion.instance()
-		i.position = global_position
-		i.emitting = true
-		get_parent().add_child(i)
-		queue_free()
+	if not hit == 0:
+		hp -= hit
+		hit = 0
+		$CPUParticles2D.emitting = true
+		yield(get_tree().create_timer(0.1), "timeout")
+		$CPUParticles2D.emitting = false
+		if hp <= 0:
+			var i = explosion.instance()
+			i.position = global_position
+			i.emitting = true
+			get_parent().add_child(i)
+			queue_free()
 	time += delta
 	if time > 10:
 		time = 0

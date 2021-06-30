@@ -37,6 +37,8 @@ func get_input():
 	if Input.is_action_pressed("left"):
 		$AnimatedSprite.flip_h = true
 		velocity.x -= speed
+	if Input.is_action_just_released("fire"):
+		$Charge.playing = false
 	if Input.is_action_just_released("fire") and aim and firedelay <= 0:
 		shoot()
 
@@ -47,20 +49,20 @@ func shoot():
 		firedelay = 0.2
 		for i in $Smoke/Area2D.get_overlapping_bodies():
 			if "hit" in i:
-				i.hit = true
+				i.hit = 10
 		if get_global_mouse_position() > global_position:
 			recoil = Vector2(-800, 0)
 		else:
 			recoil = Vector2(800, 0)
 		$Smoke.emitting = true
-		$Camera2D/ColorRect.visible = true
-		yield(get_tree().create_timer(0.1), "timeout")
-		$Camera2D/ColorRect.visible = false
+		yield(get_tree().create_timer(0.2), "timeout")
 		$Smoke.emitting = false
 	else:
+		$Gunfire2.playing = true
+		shaderAbberation = 0.2
 		for i in $Smoke/Area2D.get_overlapping_bodies():
 			if "hit" in i:
-				i.hit = true
+				i.hit = 0.75
 		$Smoke.emitting = true
 		yield(get_tree().create_timer(0.001), "timeout")
 		$Smoke.emitting = false
@@ -73,11 +75,18 @@ func set_health(hp):
 
 func _physics_process(delta):
 	if charge:
+		speed = 100
 		$Smoke2.emitting = true
-		charge_time += delta
+		if charge_time < required_charge + 0.1:
+			charge_time += delta
+		if charge_time > 0.2 and not $Charge.playing:
+			$Charge.playing = true
+		$Charge.pitch_scale = charge_time * 6
 	else:
+		speed = 200
 		charge_time = 0
 		$Smoke2.emitting = false
+		$Charge.pitch_scale = 1
 	if hit:
 		hit = false
 		hp -= 1
@@ -128,5 +137,5 @@ func _physics_process(delta):
 	if not velocity.x == 0:
 		Global.playerpos = position
 	if Input.is_action_just_pressed("jump"):
-		if is_on_floor():
+		if is_on_floor() and not charge:
 			velocity.y = jump_speed

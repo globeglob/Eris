@@ -12,8 +12,8 @@ var speed = 100
 var defaultSpeed = 30
 var velocity = Vector2(speed,0)
 
-var hit = false
-var hp = 10
+var hit = 0
+var hp = 30
 var hpDisplay = hp
 
 var explosion = preload("res://scenes/Explosion.tscn")
@@ -45,11 +45,11 @@ func _body_entered(body):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	hpDisplay = lerp(hpDisplay, hp, 0.05)
-	$ParallaxBackground/ParallaxLayer/ColorRect.rect_size.x = hpDisplay * 20
-	$ParallaxBackground/ParallaxLayer/ColorRect.rect_position.x = -(hpDisplay * 20) / 2
-	if hit and active:
-		hit = false
-		hp -= 1.5
+	$ParallaxBackground/ParallaxLayer/ColorRect.rect_size.x = hpDisplay * 5
+	$ParallaxBackground/ParallaxLayer/ColorRect.rect_position.x = -(hpDisplay * 5) / 2
+	if not hit == 0 and active:
+		hp -= hit
+		hit = 0
 		$CPUParticles2D.emitting = true
 		velocity.x = -300
 		yield(get_tree().create_timer(0.1), "timeout")

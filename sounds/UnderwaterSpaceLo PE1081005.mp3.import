@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/UnderwaterSpaceLo PE1081005.mp3-f660edf7894781dfcf3bf5603081508a.mp3str"
+
+[deps]
+
+source_file="res://sounds/UnderwaterSpaceLo PE1081005.mp3"
+dest_files=[ "res://.import/UnderwaterSpaceLo PE1081005.mp3-f660edf7894781dfcf3bf5603081508a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
