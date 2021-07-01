@@ -11,6 +11,9 @@ func _ready():
 	$AudioStreamPlayer.playing = true
 	pass # Replace with function body.
 
+func boss_start():
+	$Boss.playing = true
+
 func show_key():
 	$Key.visible = true
 	yield(get_tree().create_timer(5), "timeout")

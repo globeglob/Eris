@@ -12,8 +12,9 @@ func _ready():
 	pass # Replace with function body.
 
 func boss_start():
-	$Ambient.playing = false
-	$Boss.playing = true
+	if not $Boss.playing:
+		$Ambient.playing = false
+		$Boss.playing = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

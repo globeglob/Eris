@@ -14,7 +14,7 @@ var velocity = Vector2(speed,0)
 
 var hit = 0
 var hp = 50
-var hpDisplay = hp
+var hpDisplay = 0
 
 var explosion = preload("res://scenes/Explosion.tscn")
 var projectile = preload("res://scenes/Projectile1.tscn")
@@ -100,6 +100,7 @@ func _process(delta):
 		if bootTime > 5:
 			$AnimatedSprite.animation = "boot"
 		if bootTime > 10:
+			get_parent().boss_start()
 			active = true
 			boot = false
 			$AnimatedSprite.animation = "active" 

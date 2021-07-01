@@ -14,7 +14,7 @@ var active = false
 var target = Vector2(6784, 96)
 var time = 0
 var firedelay = 0
-var hpDisplay = hp
+var hpDisplay = 0
 var wake = false
 var wakeTime = 0
 
