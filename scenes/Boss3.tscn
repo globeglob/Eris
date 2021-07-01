@@ -68,13 +68,13 @@ script = ExtResource( 5 )
 position = Vector2( 0, -48 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Head" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -152 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 6 )
+frame = 1
 playing = true
 
 [node name="Arm1" type="Sprite" parent="."]
@@ -171,5 +171,4 @@ __meta__ = {
 visible = false
 scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
-frame = 1
 playing = true
