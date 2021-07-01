@@ -19,6 +19,8 @@ func _process(delta):
 		if firedelay <= 0:
 			firedelay = 16
 			var i = projectile.instance()
+			i.speed = 100
+			i.scale = Vector2(2, 2)
 			i.global_position = global_position
 			i.position += Vector2(64,0).rotated(rotation)
 			i.look_at(Global.playerpos)

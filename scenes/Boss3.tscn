@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://sprites/boss3arm.png" type="Texture" id=1]
 [ext_resource path="res://sprites/boss3head.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/Arm.gd" type="Script" id=4]
 [ext_resource path="res://scripts/Boss3.gd" type="Script" id=5]
 [ext_resource path="res://fonts/CourierPrime-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://sprites/target.png" type="Texture" id=7]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -50,6 +51,14 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=9]
 font_data = ExtResource( 6 )
 
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ ExtResource( 7 ), null ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="Boss3" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 4
@@ -59,13 +68,13 @@ script = ExtResource( 5 )
 position = Vector2( 0, -48 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Head" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -152 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 6 )
-frame = 1
 playing = true
 
 [node name="Arm1" type="Sprite" parent="."]
@@ -95,6 +104,20 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
 firedelay = 4
+
+[node name="Lasers" type="Node2D" parent="."]
+
+[node name="Laser1" type="Node2D" parent="Lasers"]
+position = Vector2( -16, -160 )
+
+[node name="Laser2" type="Node2D" parent="Lasers"]
+position = Vector2( 16, -160 )
+
+[node name="Laser3" type="Node2D" parent="Lasers"]
+position = Vector2( -16, -144 )
+
+[node name="Laser4" type="Node2D" parent="Lasers"]
+position = Vector2( 16, -144 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -88 )
@@ -143,3 +166,10 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Target" type="AnimatedSprite" parent="."]
+visible = false
+scale = Vector2( 2, 2 )
+frames = SubResource( 10 )
+frame = 1
+playing = true

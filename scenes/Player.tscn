@@ -47,23 +47,23 @@ atlas = ExtResource( 1 )
 region = Rect2( 0, 48, 16, 48 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 16, 48 )
+atlas = ExtResource( 1 )
+region = Rect2( 0, 48, 16, 48 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 2 )
-region = Rect2( 16, 0, 16, 48 )
+region = Rect2( 0, 0, 16, 48 )
 
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 2 )
-region = Rect2( 32, 0, 16, 48 )
+region = Rect2( 16, 0, 16, 48 )
 
 [sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 2 )
-region = Rect2( 0, 48, 16, 48 )
+region = Rect2( 32, 0, 16, 48 )
 
 [sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 2 )
 region = Rect2( 0, 48, 16, 48 )
 
 [sub_resource type="SpriteFrames" id=12]
@@ -71,6 +71,11 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "aim",
 "speed": 5.0
 }, {
 "frames": [ SubResource( 2 ) ],
@@ -83,19 +88,14 @@ animations = [ {
 "name": "walk_aim",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 11 ) ],
+"frames": [ SubResource( 7 ) ],
 "loop": true,
 "name": "jump_aim",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
-"name": "aim",
+"name": "walk",
 "speed": 5.0
 } ]
 
@@ -105,28 +105,28 @@ b = Vector2( -512, 0.117001 )
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "flash",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "3",
+"speed": 5.0
 } ]
 
-[sub_resource type="StyleBoxFlat" id=16]
+[sub_resource type="StyleBoxFlat" id=15]
 bg_color = Color( 0, 0, 0, 1 )
 border_width_left = 4
 border_width_top = 4
@@ -138,12 +138,20 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=16]
 size = 24
 font_data = ExtResource( 21 )
 
-[sub_resource type="StyleBoxFlat" id=18]
+[sub_resource type="StyleBoxFlat" id=17]
 bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=19]
 bg_color = Color( 0, 0, 0, 1 )
@@ -153,18 +161,10 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=20]
-bg_color = Color( 0, 0, 0, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="DynamicFont" id=21]
+[sub_resource type="DynamicFont" id=20]
 font_data = ExtResource( 21 )
 
-[sub_resource type="ShaderMaterial" id=15]
+[sub_resource type="ShaderMaterial" id=21]
 shader = ExtResource( 7 )
 shader_param/screen_size = Vector2( 1024, 300 )
 shader_param/show_curvature = true
@@ -297,7 +297,7 @@ margin_left = -32.0
 margin_top = -64.0
 margin_right = 960.0
 margin_bottom = 512.0
-custom_styles/panel = SubResource( 16 )
+custom_styles/panel = SubResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -319,7 +319,7 @@ margin_left = 24.0
 margin_top = 24.0
 margin_right = 66.0
 margin_bottom = 52.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "DRIVE FAILURE EMMINENT. PLEASE LOCATE REPLACEMENT DRIVE."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -330,10 +330,10 @@ margin_left = 24.0
 margin_top = 52.0
 margin_right = 960.0
 margin_bottom = 560.0
-custom_styles/tab_fg = SubResource( 18 )
-custom_styles/tab_bg = SubResource( 19 )
-custom_styles/panel = SubResource( 20 )
-custom_fonts/font = SubResource( 21 )
+custom_styles/tab_fg = SubResource( 17 )
+custom_styles/tab_bg = SubResource( 18 )
+custom_styles/panel = SubResource( 19 )
+custom_fonts/font = SubResource( 20 )
 tab_align = 0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -346,7 +346,7 @@ margin_left = 2.0
 margin_top = 31.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "Your known facts can be found here."
 autowrap = true
 
@@ -358,7 +358,7 @@ margin_left = 2.0
 margin_top = 31.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "Widely considered the most powerful handgun ever produced, the EG-19 uses a high-power cathode ray to fire a deadly electron beam. The weapon offers incredible stopping power if charged, or a rapid rate of fire if uncharged."
 autowrap = true
 
@@ -370,7 +370,7 @@ margin_left = 2.0
 margin_top = 31.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "The Esiine Robotics Polydroid 4 ELITE is an upgraded model of the popular Polydroid 4, featuring more powerful servos and an integrated fusion reactor for powering high-end equipment and modules. If your unit is in need of repair, contact Esiine Robotics or visit your nearest Esiine Omnifactory. Do not attempt to repair yourself."
 autowrap = true
 
@@ -382,7 +382,7 @@ margin_left = 2.0
 margin_top = 31.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "The collector is an illegaly modified Esiine Model 3 Security Drone featuring more advanced armor and weapons systems. Due to behavioral malfunctions, the Collector displays hoarding behavior, collecting bits of scrap it can find and piling them in a location it has designated as its nest. "
 autowrap = true
 
@@ -394,7 +394,7 @@ margin_left = 2.0
 margin_top = 31.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "The Esiine Robotics MK.II Hoversentry is an all-in-one security solution featuring AI threat detection, auto-targeting, and a best-in-class heavy plasma cannon."
 autowrap = true
 
@@ -406,12 +406,24 @@ margin_left = 2.0
 margin_top = 31.0
 margin_right = -2.0
 margin_bottom = -2.0
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 16 )
 text = "The northwest channel monster is a legendary creature said by some to live in the northwest channel. Reports vary, but according to most it resembles a large squid. There is no definitive evidence of its existence."
 autowrap = true
 
+[node name="Security Overseer" type="Label" parent="ParallaxBackground/ParallaxLayer/Drive/Panel/Tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 31.0
+margin_right = -2.0
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 16 )
+text = "The Esiine Security Overseer is the pinnacle of automated security. Boasting four auto-tracking plasma cannons, a heavy laser beam, and military-grade reactive armor, even the most determined intruders will not get past this machine."
+autowrap = true
+
 [node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
-material = SubResource( 15 )
+material = SubResource( 21 )
 margin_left = -512.0
 margin_top = -300.0
 margin_right = 512.0

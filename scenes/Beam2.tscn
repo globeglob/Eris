@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/beamend.png" type="Texture" id=1]
+[ext_resource path="res://scripts/Beam2.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 920, 8 )
+
+[node name="Beam2" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="Sprite"]
+visible = false
+margin_left = 4.0
+margin_top = -4.0
+margin_right = 924.0
+margin_bottom = 4.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( 928, 0 )
+shape = SubResource( 1 )

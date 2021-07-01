@@ -19,6 +19,7 @@ var camera_shake = 1
 var charge_time = 0
 var charge = false
 var required_charge = 0.75
+var invincible = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,7 +68,7 @@ func shoot():
 		shaderAbberation = 0.2
 		for i in $Smoke/Area2D.get_overlapping_bodies():
 			if "hit" in i:
-				i.hit = 0.75
+				i.hit = 1
 		$Smoke.emitting = true
 		yield(get_tree().create_timer(0.001), "timeout")
 		$Smoke.emitting = false
@@ -79,6 +80,8 @@ func set_health(hp):
 
 
 func _physics_process(delta):
+	if invincible > 0:
+		invincible -= delta
 	if charge and aim:
 		speed = 100
 		$Smoke2.emitting = true
@@ -92,7 +95,8 @@ func _physics_process(delta):
 		charge_time = 0
 		$Smoke2.emitting = false
 		$Charge.pitch_scale = 1
-	if hit:
+	if hit and not invincible > 0:
+		invincible = 1
 		hit = false
 		hp -= 1
 		set_health(hp)
@@ -100,6 +104,8 @@ func _physics_process(delta):
 		hitVector = Vector2()
 		if hp <= 0:
 			get_tree().change_scene(Global.level)
+	elif hit:
+		hit = false
 	recoil.x = lerp(recoil.x, 0, 0.05)
 	recoil.y = lerp(recoil.y, 0, 0.5)
 	
