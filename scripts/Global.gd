@@ -5,8 +5,8 @@ extends Node
 # var a = 2
 # var b = "text"
 var playerpos = Vector2()
-var savepos = Vector2(512, 216) #default 512 216 level 2 boss 5952 400 level 3 boss 6896 -176
-var level = "res://scenes/Level1.tscn"
+var savepos = Vector2(6896,-176) #default 512 216 level 2 boss 5952 400 level 3 boss 6896 -176
+var level = "res://scenes/Level3.tscn"
 var pause = false
 var button = false
 

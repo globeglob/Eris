@@ -82,28 +82,28 @@ position = Vector2( 192, -64 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
-firedelay = 1
+firedelay = 4
 
 [node name="Arm2" type="Sprite" parent="."]
 position = Vector2( 128, -96 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
-firedelay = 2
+firedelay = 8
 
 [node name="Arm3" type="Sprite" parent="."]
 position = Vector2( -128, -96 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
-firedelay = 3
+firedelay = 12
 
 [node name="Arm4" type="Sprite" parent="."]
 position = Vector2( -192, -64 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 script = ExtResource( 4 )
-firedelay = 4
+firedelay = 16
 
 [node name="Lasers" type="Node2D" parent="."]
 
@@ -173,3 +173,6 @@ scale = Vector2( 2, 2 )
 frames = SubResource( 10 )
 frame = 1
 playing = true
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+volume_db = 8.0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/boss3voice5.mp3-ee232d939eee3d0869f1759f1e6fcf96.mp3str"
+
+[deps]
+
+source_file="res://sounds/boss3voice5.mp3"
+dest_files=[ "res://.import/boss3voice5.mp3-ee232d939eee3d0869f1759f1e6fcf96.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

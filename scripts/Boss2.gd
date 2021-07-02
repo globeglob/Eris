@@ -50,15 +50,16 @@ func _process(delta):
 			$ParallaxBackground/ParallaxLayer.visible = true
 			wake = false
 			active = true
-	hpDisplay = lerp(hpDisplay, hp, 0.05)
-	$ParallaxBackground/ParallaxLayer/ColorRect.rect_size.x = hpDisplay
-	$ParallaxBackground/ParallaxLayer/ColorRect.rect_position.x = -(hpDisplay) / 2
+	$ParallaxBackground/ParallaxLayer/ColorRect.rect_size.x = hpDisplay * 2
+	$ParallaxBackground/ParallaxLayer/ColorRect.rect_position.x = -(hpDisplay * 2) / 2
+	if active:
+		hpDisplay = lerp(hpDisplay, hp, 0.05)
 	if angry:
 		time += delta * 4
 		if time > 10:
 			$Eye.animation = "fire"
 			if firedelay <= 0:
-				firedelay = 0.8 * (hp/100)
+				firedelay = 0.8 * (hp/25)
 				var i = projectile.instance()
 				i.global_position = global_position
 				i.position.y += 30

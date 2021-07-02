@@ -21,6 +21,7 @@ var projectile = preload("res://scenes/Projectile1.tscn")
 
 var time = 0
 var firedelay = 0
+var voice = preload("res://sounds/boss1.mp3")
 
 
 
@@ -32,7 +33,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _screen_entered():
-	boot = true
+	if not boot and not active:
+		boot = true
 
 func _body_entered(body):
 	if body.filename == "res://scenes/Player.tscn" and active:
@@ -44,11 +46,10 @@ func _body_entered(body):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	hpDisplay = lerp(hpDisplay, hp, 0.05)
-	$ParallaxBackground/ParallaxLayer/ColorRect.rect_size.x = hpDisplay * 5
-	$ParallaxBackground/ParallaxLayer/ColorRect.rect_position.x = -(hpDisplay * 5) / 2
+	$ParallaxBackground/ParallaxLayer/ColorRect.rect_size.x = hpDisplay * 4
+	$ParallaxBackground/ParallaxLayer/ColorRect.rect_position.x = -(hpDisplay * 4) / 2
 	if not hit == 0 and active:
-		hp -= hit
+		hp -= hit * 2
 		hit = 0
 		$CPUParticles2D.emitting = true
 		velocity.x = -300
@@ -63,6 +64,7 @@ func _process(delta):
 			get_parent().add_child(i)
 			queue_free()
 	if active:
+		hpDisplay = lerp(hpDisplay, hp, 0.05)
 		time += delta * 3
 		if time < 20:
 			$AnimatedSprite.animation = "active"
